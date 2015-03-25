@@ -11,14 +11,8 @@ cyan=`tput setaf 6`
 white=`tput setaf 7`
 reset=`tput sgr0`
 
-
-# aliases
-alias g=git
-alias l="ls -G"
-alias sz="source ~/.zshrc"
-alias cdu="cd .."
-
 # my functions
+# subdo goes into each subdir and does the task you input, this one in color!
 function subdo () {
   {
     for dir in ./*
@@ -33,9 +27,7 @@ function subdo () {
   } 2>&1
 }
 
-# Custom Functions
-
-# subdo goes into each subdir and does the task you input
+# subdo goes into each subdir and does the task you input, this one pipes to less
 function subdoless {
   {
     for dir in ./*;
@@ -49,6 +41,9 @@ function subdoless {
   } 2>&1 | less
 }
 
+
+# aliases
+alias cdu="cd .."
 alias scr='screen -r'
 alias g=git
 alias l='ls -G'
@@ -56,8 +51,8 @@ alias sz='source ~/.zshrc'
 alias az='atom ~/.zshrc'
 alias deleted='sudo /usr/sbin/lsof | grep deleted'
 alias du='sudo du --human-readable'
-alias vgcfg='vim ~/.gitconfig'
-alias vzsh='vim ~/.zshrc && source ~/.zshrc'
+alias vg='vim ~/.gitconfig'
+alias vz='vim ~/.zshrc && source ~/.zshrc'
 # alias l='ls --almost-all --color=yes --classify --quoting-style=escape'
 
 
@@ -86,6 +81,14 @@ setopt correctall
 autoload -U promptinit
 promptinit
 
+# autoload -U colors
+# colors
+
+# get online help
+unalias run-help
+autoload run-help
+HELPDIR=/usr/local/share/zsh/help
+
 
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
@@ -97,6 +100,14 @@ setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 
+## keep background processes at full speed
+setopt NOBGNICE
+## restart running processes on exit
+setopt HUP
+
+#allow tab completion in the middle of a word
+setopt COMPLETE_IN_WORD
+
 export PS1="[%D %*] %d %% "
 
-echo "zshrc done"
+echo ".zshrc applied"

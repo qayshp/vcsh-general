@@ -25,7 +25,6 @@
     llog = log --oneline @{upstream}..HEAD
     llp = log -p @{upstream}..HEAD
     lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-    backup = ! git add-backup-remote && git push backup
 [rerere]
     enabled = true
 [rebase]
@@ -33,16 +32,16 @@
 [sendemail]
 [core]
     pager = less -FMRiX
-	excludesfile = /Users/qayshp/.gitignore_global
+    excludesfile = /Users/qayshp/.gitignore_global
 [diff]
-    tool = p4merge
+    tool = vimdiff
 [filter "hawser"]
 	clean = git hawser clean %f
 	smudge = git hawser smudge %f
 	required = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true

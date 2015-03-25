@@ -1,1 +1,1 @@
-echo ".z_profile applied"
+echo ".zprofile applied"
