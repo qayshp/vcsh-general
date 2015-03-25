@@ -45,14 +45,17 @@ function subdoless {
 # aliases
 alias cdu="cd .."
 alias scr='screen -r'
-alias g=git
-alias l='ls -G'
+alias g='git'
+alias ls='ls -G'
+alias l='ls'
 alias sz='source ~/.zshrc'
 alias az='atom ~/.zshrc'
 alias deleted='sudo /usr/sbin/lsof | grep deleted'
 alias du='sudo du --human-readable'
 alias vg='vim ~/.gitconfig'
 alias vz='vim ~/.zshrc && source ~/.zshrc'
+alias a='atom'
+alias v='vim'
 # alias l='ls --almost-all --color=yes --classify --quoting-style=escape'
 
 
@@ -108,6 +111,6 @@ setopt HUP
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
-export PS1="[%D %*] %d %% "
+export PS1="[%D %*] %~ %% "
 
 echo ".zshrc applied"
