@@ -1,0 +1,26 @@
+"*":
+  editor:
+    invisibles: {}
+    preferredLineLength: 120
+    showInvisibles: true
+    showIndentGuide: true
+    softWrapAtPreferredLineLength: true
+    fontSize: 14
+    softWrap: true
+  "exception-reporting":
+    userId: "f4528e6d-9d33-395b-4e2f-c65c5036fc8d"
+  welcome:
+    showOnStartup: false
+  metrics:
+    userId: "770bb75866f2c1cdeb2aa049783404d5452bc1a0"
+  "git-diff":
+    showIconsInEditorGutter: true
+  core: {}
+  "tree-view":
+    hideIgnoredNames: true
+  "vim-mode":
+    useSmartcaseForSearch: true
+  pomodoro: {}
+".text.todo":
+  editor:
+    preferredLineLength: 120

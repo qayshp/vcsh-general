@@ -1,0 +1,48 @@
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[user]
+	name = Qays H. Poonawala
+	email = qayshp@gmail.com
+	signingkey = 774FC477
+[color]
+    ui = auto
+[push]
+    default = simple
+[alias]
+    dag = log --graph --format='format:%C(yellow)%h%C(reset) %C(blue)\"%an\" <%ae>%C(reset) %C(magenta)%cr%C(reset)%C(auto)%d%C(reset)%n%s' --date-order
+    br = branch
+    brav = branch -av
+    st = status
+    ci = commit
+    cim = commit -m
+    cia = commit --amend --no-edit
+    ciae = commit --amend
+    co = checkout
+    upstream = branch --set-upstream-to=origin/master
+    ru = remote update
+    llog = log --oneline @{upstream}..HEAD
+    llp = log -p @{upstream}..HEAD
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+    backup = ! git add-backup-remote && git push backup
+[rerere]
+    enabled = true
+[rebase]
+    autosquash = true
+[sendemail]
+[core]
+    pager = less -FMRiX
+	excludesfile = /Users/qayshp/.gitignore_global
+[diff]
+    tool = p4merge
+[filter "hawser"]
+	clean = git hawser clean %f
+	smudge = git hawser smudge %f
+	required = true
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
