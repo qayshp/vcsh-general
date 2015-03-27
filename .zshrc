@@ -84,10 +84,18 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 
 
 ## history
+export HISTFILE=~/.zsh_history
+export HISTSIZE=2000
+export SAVEHIST=$HISTSIZE
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
 setopt APPEND_HISTORY
 ## for sharing history between zsh processes
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
+
+# automatically cd when given a directory
+setopt autocd
 
 ## keep background processes at full speed
 setopt NOBGNICE
