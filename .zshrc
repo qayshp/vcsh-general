@@ -11,6 +11,24 @@ cyan=`tput setaf 6`
 white=`tput setaf 7`
 reset=`tput sgr0`
 
+# aliases
+alias cdu='cd ..'
+alias scr='screen -r'
+alias g='git'
+alias grep='grep --color=auto'
+alias less='less ---raw-control-chars'
+alias ls='ls -G'
+alias l='ls'
+alias sz='source ~/.zshrc'
+alias az='atom ~/.zshrc'
+alias deleted='/usr/sbin/lsof | grep deleted'
+alias du='du --human-readable'
+alias vg='vim ~/.gitconfig'
+alias vz='vim ~/.zshrc && source ~/.zshrc'
+alias a='atom'
+alias v='vim'
+# alias l='ls --almost-all --color=yes --classify --quoting-style=escape'
+
 # my functions
 # subdo goes into each subdir and does the task you input, this one in color!
 function subdo () {
@@ -24,27 +42,8 @@ function subdo () {
         eval "$*"
       )
     done
-  } 2>&1 | less --raw-control-chars
+  } 2>&1 | less
 }
-
-# aliases
-alias cdu='cd ..'
-alias scr='screen -r'
-alias g='git'
-alias grep='grep --color=always'
-alias less='less ---raw-control-chars'
-alias ls='ls -G'
-alias l='ls'
-alias sz='source ~/.zshrc'
-alias az='atom ~/.zshrc'
-alias deleted='sudo /usr/sbin/lsof | grep deleted'
-alias du='sudo du --human-readable'
-alias vg='vim ~/.gitconfig'
-alias vz='vim ~/.zshrc && source ~/.zshrc'
-alias a='atom'
-alias v='vim'
-# alias l='ls --almost-all --color=yes --classify --quoting-style=escape'
-
 
 # enable VCSINFO
 # https://wiki.gentoo.org/wiki/Zsh/HOWTO
