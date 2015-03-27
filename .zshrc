@@ -45,18 +45,25 @@ function subdo () {
   } 2>&1 | less
 }
 
-# enable VCSINFO
+# enable VCS_INFO
 # https://wiki.gentoo.org/wiki/Zsh/HOWTO
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' formats "%r/%S %b (%a) %m%u%c "
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' check-for-staged-changes true
+# stashed changes using gitst do not show, will work on this later
+# ${yellow}%m${reset}-
+# also want to add ahead/behind, may use
+# https://github.com/sunaku/home/blob/master/.zsh/config/prompt.zsh
+# https://github.com/johan/zsh/blob/master/Misc/vcs_info-examples
+# http://www.opensource.apple.com/source/zsh/zsh-55/zsh/Misc/vcs_info-examples
+zstyle ':vcs_info:git*' formats "${magenta}(${reset}%r/%S${magenta})${yellow}-${magenta}[${reset}%b-${red}%u${reset}-${blue}%c${magenta}]${reset}"
 precmd() {
     vcs_info
 }
-# add to prompt
+# enable add to prompt
 setopt prompt_subst
-PROMPT='${vcs_info_msg_0_}%# '
-
 #
 # make zsh autocomplete nicer
 # https://wiki.gentoo.org/wiki/Zsh/HOWTO
@@ -105,6 +112,6 @@ setopt HUP
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
-export PS1="[%D %*] %~ %% "
+export PS1='[%D %*] %~${vcs_info_msg_0_}%# '
 
 echo ".zshrc applied"
