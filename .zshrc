@@ -28,9 +28,11 @@ function subdo () {
 }
 
 # aliases
-alias cdu="cd .."
+alias cdu='cd ..'
 alias scr='screen -r'
 alias g='git'
+alias grep='grep --color=always'
+alias less='less ---raw-control-chars'
 alias ls='ls -G'
 alias l='ls'
 alias sz='source ~/.zshrc'
