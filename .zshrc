@@ -24,23 +24,8 @@ function subdo () {
         eval "$*"
       )
     done
-  } 2>&1
+  } 2>&1 | less --raw-control-chars
 }
-
-# subdo goes into each subdir and does the task you input, this one pipes to less
-function subdoless {
-  {
-    for dir in ./*;
-    do (
-        echo "=================================================================================" &&
-        cd "$dir" &&
-        pwd &&
-        eval "$*"
-        );
-    done
-  } 2>&1 | less
-}
-
 
 # aliases
 alias cdu="cd .."
