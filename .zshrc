@@ -114,4 +114,12 @@ setopt COMPLETE_IN_WORD
 
 export PS1='[%D %*] %~${vcs_info_msg_0_}%# '
 
+# http://pilif.github.io/2004/10/delete-key-in-zsh/
+bindkey "^[[3~" delete-char
+bindkey "^[3;5~" delete-char
+# remap home and end http://theandystratton.com/2009/fixing-home-end-page-up-and-page-down-in-leopards-terminal
+# or just import and use qayshp.terminal
+#"${key[Home]}"
+
+
 echo ".zshrc applied"
