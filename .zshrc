@@ -1,5 +1,36 @@
 #!/bin/zsh
 
+# Fixes for path on one machine
+
+# Use JDK 7 instea of 8, with both installed.
+# from http://www.jayway.com/2014/01/15/how-to-switch-jdk-version-on-mac-os-x-maverick/
+function setjdk() {
+  if [ $# -ne 0 ]; then
+   removeFromPath '/System/Library/Frameworks/JavaVM.framework/Home/bin'
+   if [ -n "${JAVA_HOME+x}" ]; then
+    removeFromPath $JAVA_HOME
+   fi
+   export JAVA_HOME=`/usr/libexec/java_home -v $@`
+   export PATH=$JAVA_HOME/bin:$PATH
+  fi
+ }
+ function removeFromPath() {
+  export PATH=$(echo $PATH | sed -E -e "s;:$1;;" -e "s;$1:?;;")
+ }
+setjdk 1.7
+
+# add maven to path
+export PATH=~/clis/apache-maven-3.3.1/bin:$PATH
+
+# add vcsh to path
+export PATH=~/clis/vcsh-master:$PATH
+
+# add newer git and git scripts to path
+export GIT_EXEC_PATH=~/Applications/SourceTree.app/Contents/Resources/git_local/libexec/git-core/
+export PATH=~/Applications/Applications/SourceTree.app/Contents/Resources/git_local/bin:$PATH
+
+# master VCSH
+
 # color variables
 black=`tput setaf 0`
 red=`tput setaf 1`
