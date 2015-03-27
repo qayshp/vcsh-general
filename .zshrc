@@ -29,6 +29,10 @@ export PATH=~/clis/vcsh-master:$PATH
 export GIT_EXEC_PATH=~/Applications/SourceTree.app/Contents/Resources/git_local/libexec/git-core/
 export PATH=~/Applications/Applications/SourceTree.app/Contents/Resources/git_local/bin:$PATH
 
+# alias atom
+alias atom="sh ~/Applications/Atom.app/Contents/Resources/app/atom.sh"
+
+#############################
 # master VCSH
 
 # color variables
