@@ -10,6 +10,7 @@ magenta=`tput setaf 5`
 cyan=`tput setaf 6`
 white=`tput setaf 7`
 reset=`tput sgr0`
+newline=$'\n'
 
 # aliases
 alias cdu='cd ..'
@@ -112,7 +113,7 @@ setopt HUP
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
 
-export PS1='[%D %*] %~${vcs_info_msg_0_}%# '
+export PS1='[%D %*] %~${vcs_info_msg_0_}${newline}%# '
 
 # http://pilif.github.io/2004/10/delete-key-in-zsh/
 bindkey "^[[3~" delete-char
