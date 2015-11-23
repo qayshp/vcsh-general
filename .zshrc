@@ -46,6 +46,17 @@ function subdo () {
   } 2>&1 | less
 }
 
+# if in a git work tree, rm or mv should use the git command.
+# http://stackoverflow.com/questions/22653525/how-to-do-conditional-aliases-in-zsh?rq=1
+function rm mv () {
+  if git rev-parse --is-inside-work-tree &> /dev/null
+  then
+    git $0 "$@"
+  else
+    command $0 "$@"
+  fi
+}
+
 # enable VCS_INFO
 # https://wiki.gentoo.org/wiki/Zsh/HOWTO
 # http://zsh.sourceforge.net/Doc/Release/User-Contributions.html#Version-Control-Information
